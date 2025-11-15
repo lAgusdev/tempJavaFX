@@ -11,8 +11,6 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.java.tp.agency.Agency;
 import com.java.tp.agency.dataController.DataController;
-import com.java.tp.agency.responsables.Responsable;
-import com.java.tp.agency.travels.Travel;
 import com.java.tp.App;
 public class NewTravelController {
 
@@ -92,40 +90,6 @@ private void actualizarCostoLabel() {
 
 
     @FXML
-private List<String> obtenerResponsablesDisponibles() {
-    
-
-    java.util.Collection<Responsable> todosLosResponsables = Agency.getInstancia().getResponsables().values();
-        
-
-    java.util.Set<String> responsablesOcupadosDni = new java.util.HashSet<>();
-    
-    for (Travel viaje : Agency.getInstancia().getViajes().values()) {
-        try {
-
-            if ("ACTIVO".equals(viaje.getEstado())) { 
-                java.util.TreeSet<String> dnisDelViaje = viaje.getPerResponsables(); 
-                responsablesOcupadosDni.addAll(dnisDelViaje);
-            }
-        } catch (Exception e) {
-            System.err.println("Error procesando estado del viaje: " + e.getMessage());
-        }
-    }
-    
-    List<String> listaDisponibles = new java.util.ArrayList<>();
-    
-    for (Responsable responsable : todosLosResponsables) {
-        String dni = responsable.getDni();
-        
-    
-        if (!responsablesOcupadosDni.contains(dni)) {
-            listaDisponibles.add(String.format("%s (%s)", responsable.getNombre(), dni));
-        }
-    }
-    
-    return listaDisponibles;
-}
-    @FXML
     public void initialize() {
         // --- CONFIGURACIÓN DE DESTINO ---
         destinoComboBox.setItems(FXCollections.observableArrayList(Agency.getInstancia().getDistancias().keySet()));
@@ -137,7 +101,7 @@ private List<String> obtenerResponsablesDisponibles() {
         );
 
         // --- CONFIGURACIÓN DE PASAJEROS ---
-        pasajerosSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 50, 1));
+        pasajerosSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 40, 1));
         pasajerosSpinner.valueProperty().addListener((obs, oldVal, newVal) -> actualizarCostoLabel());
         // --- CONFIGURACIÓN DE KILÓMETROS (CON EDICIÓN POR TECLADO) ---
         SpinnerValueFactory.IntegerSpinnerValueFactory factory = 
@@ -176,7 +140,7 @@ private List<String> obtenerResponsablesDisponibles() {
         vehiculoComboBox.valueProperty().addListener((obs, oldVal, newVal) -> actualizarCostoLabel());
         
         // --- CONFIGURACIÓN DE RESPONSABLES ---
-        List<String> responsablesEstandar = obtenerResponsablesDisponibles();
+        List<String> responsablesEstandar = Agency.getInstancia().getResponsablesDisponibles();
         
         disponibles = FXCollections.observableArrayList(responsablesEstandar);
         responsablesDisponiblesListView.setItems(disponibles);

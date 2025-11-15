@@ -32,7 +32,7 @@ public  abstract class Travel {
     //getters
     @XmlElement
     public float getKmRec() {return kmRec;}
-    @XmlTransient
+    @XmlElement
     public String getId() {return id;}
     @XmlElement
     public String getPatVehiculo() {return patVehiculo;}
@@ -73,7 +73,5 @@ public  abstract class Travel {
         return new TreeSet<>();
     }
 
-
-
-    public abstract float devuelveValorCalculado(Vehicles vehiculo, Place destino, HashMap<String,Responsable> responsableABordo, int cantPas, int cantCamas);
+    public abstract float devuelveValorCalculado(Vehicles vehiculo, Place destino, HashMap<String,Responsable> responsableABordo, int cantPas);
 }

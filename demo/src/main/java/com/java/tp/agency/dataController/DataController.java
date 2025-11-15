@@ -5,12 +5,9 @@ import com.java.tp.agency.exceptions.*;
 import com.java.tp.agency.responsables.Responsable;
 import com.java.tp.agency.vehicles.*;
 import com.java.tp.agency.travels.*;
-
 import java.io.*;
 import java.util.*;
-
 import jakarta.xml.bind.*;
-
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
@@ -230,7 +227,14 @@ public class DataController {
                         continue;
                     }
                     try {
-                        v.setId(agency.creaIdViaje(v.getIdDestino()));
+                        // Si el viaje no tiene ID (XML viejo), crear uno nuevo
+                        if (v.getId() == null || v.getId().isEmpty()) {
+                            v.setId(agency.creaIdViaje(v.getIdDestino()));
+                        } else {
+                            // Si tiene ID, actualizar el contador para que futuros IDs no se repitan
+                            agency.actualizarContadorDesdeId(v.getId());
+                        }
+                        
                         v.setEstado(v.actualizaEstadoViaje(v.getIdDestino(), agency.getDestinos()));
                         via.put(v.getId(), v);
                         
@@ -285,7 +289,16 @@ public class DataController {
                 sw.write("    " + contenido + "\n");
             }
             sw.write("</viajes>");
-            File archivo = new File("/com/java/tp/data/viajes.xml");
+            
+            // Obtener la ruta correcta al archivo de recursos
+            String userDir = System.getProperty("user.dir");
+            File archivo = new File(userDir, "demo/src/main/resources/com/java/tp/data/viajes.xml");
+            
+            // Si estamos en el directorio demo, ajustar la ruta
+            if (userDir.endsWith("demo")) {
+                archivo = new File(userDir, "src/main/resources/com/java/tp/data/viajes.xml");
+            }
+            
             archivo.getParentFile().mkdirs();
             try (FileWriter fw = new FileWriter(archivo)) {
                 fw.write(sw.toString());

@@ -33,7 +33,7 @@ public class MiniBus extends Vehicles {
     public void setValPasajero(float valPasajero) {this.valPasajero = valPasajero;}
     //
     @Override
-    public float calculaCosto(float km, int pasajeros, int cantCamas) {
+    public float calculaCosto(float km, int pasajeros) {
         return valBase + km * valPasajero * pasajeros;
     }
 

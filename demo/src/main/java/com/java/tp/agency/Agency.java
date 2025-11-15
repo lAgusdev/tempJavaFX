@@ -91,23 +91,43 @@ public class Agency {
         Travel viajenuevo;
         Place desAct=destinos.get(destino);
         String id=creaIdViaje(destino);
+        
+        // Extraer la patente del formato "Tipo: Patente" si es necesario
+        String patenteReal = extraerPatente(patVeh);
+        
         System.out.println("=== DEBUG crearViaje ===");
+        System.out.println("Destino: " + destino + ", kmRec: " + kmRec + ", Patente: " + patenteReal);
+        
         if(desAct.getKm()<100){//viaje corta
-            viajenuevo =new ShortDis(id,patVeh,destino,pasajeros,kmRec);
-            System.out.println("=== viaje corta ===");
+            viajenuevo =new ShortDis(id,patenteReal,destino,pasajeros,kmRec);
+            System.out.println("=== viaje corta creado con estado: " + viajenuevo.getEstado() + " ===");
         }else{
             if(res.isEmpty()){
                 throw new SinResLargaDisException("la lista de responsables esta vacia");
             }
-            viajenuevo =new LongDis(id,patVeh,destino,pasajeros,kmRec,res);
+            viajenuevo =new LongDis(id,patenteReal,destino,pasajeros,kmRec,res);
+            System.out.println("=== viaje larga creado con estado: " + viajenuevo.getEstado() + " ===");
         }
 
         viajes.put(id,viajenuevo);
-        Vehicles v=vehiculos.get(patVeh);
-        v.setEstado(Unoccupied.OCUPADO);
+        
+        // Actualizar estado del vehículo
+        Vehicles v = vehiculos.get(patenteReal);
+        
+        if (v != null) {
+            v.setEstado(Unoccupied.OCUPADO);
+        } else {
+            System.err.println("ADVERTENCIA: No se encontró el vehículo con patente: " + patenteReal + " (original: " + patVeh + ")");
+        }
+        
         if (res != null) {
             for (String r : res) {
-                responsables.get(r).setEstado(Unoccupied.OCUPADO);
+                Responsable responsable = responsables.get(r);
+                if (responsable != null) {
+                    responsable.setEstado(Unoccupied.OCUPADO);
+                } else {
+                    System.err.println("ADVERTENCIA: No se encontró el responsable con DNI: " + r);
+                }
             }
         }
     }
@@ -132,6 +152,28 @@ public class Agency {
         // Store next counter value
         cantViajes.put(destino, contador + 1);
         return id;
+    }
+    
+    /**
+     * Actualiza el contador de viajes basándose en un ID existente
+     * para evitar duplicados al cargar viajes desde XML
+     */
+    public void actualizarContadorDesdeId(String idViaje) {
+        // Extraer el destino y número del ID (formato: "Destino-5")
+        int lastDash = idViaje.lastIndexOf('-');
+        if (lastDash != -1) {
+            String destino = idViaje.substring(0, lastDash);
+            try {
+                int numero = Integer.parseInt(idViaje.substring(lastDash + 1));
+                // Actualizar el contador solo si este número es mayor o igual al actual
+                int contadorActual = cantViajes.getOrDefault(destino, 0);
+                if (numero >= contadorActual) {
+                    cantViajes.put(destino, numero + 1);
+                }
+            } catch (NumberFormatException e) {
+                System.err.println("Error al parsear número del ID: " + idViaje);
+            }
+        }
     }
 
     public void saveTravelsData() {
@@ -255,12 +297,6 @@ public class Agency {
         // Determinar tipo de viaje
         boolean esLargaDistancia = destino.getKm() >= 100;
         
-        // Calcular camas si es coche cama
-        int cantCamas = 0;
-        if (vehiculo.getCapacidad() == 32) { // Coche cama
-            cantCamas = com.java.tp.agency.vehicles.BusCC.calcularCamasOptimas(pasajeros);
-        }
-        
         // Obtener responsables
         HashMap<String, Responsable> responsablesDelViaje = new HashMap<>();
         if (esLargaDistancia && dniResponsables != null) {
@@ -285,8 +321,7 @@ public class Agency {
                 vehiculo,
                 destino,
                 responsablesDelViaje,
-                pasajeros,
-                cantCamas
+                pasajeros
             );
         } catch (Exception e) {
             System.err.println("Error al calcular costo: " + e.getMessage());
@@ -301,5 +336,41 @@ public class Agency {
         String patente = extraerPatente(vehiculoDescripcion);
         Vehicles vehiculo = vehiculos.get(patente);
         return (vehiculo != null) ? vehiculo.getCapacidad() : -1;
+    }
+    
+    /**
+     * Obtiene la lista de responsables disponibles (no asignados a viajes activos)
+     * @return Lista de strings con formato "Nombre (DNI)"
+     */
+    public List<String> getResponsablesDisponibles() {
+        Collection<Responsable> todosLosResponsables = responsables.values();
+        Set<String> responsablesOcupadosDni = new HashSet<>();
+        
+        // Obtener DNIs de responsables ocupados en viajes PENDIENTE o EN_CURSO
+        for (Travel viaje : viajes.values()) {
+            try {
+                // Solo considerar viajes que no sean pendientes ni en curso
+                if (viaje.getEstado() != com.java.tp.agency.enums.TravelStatus.PENDIENTE ||
+                    viaje.getEstado() != com.java.tp.agency.enums.TravelStatus.EN_CURSO){
+                    TreeSet<String> dnisDelViaje = viaje.getPerResponsables();
+                    if (dnisDelViaje != null) {
+                        responsablesOcupadosDni.addAll(dnisDelViaje);
+                    }
+                }
+            } catch (Exception e) {
+                System.err.println("Error procesando viaje: " + e.getMessage());
+            }
+        }
+        
+        // Crear lista de disponibles
+        List<String> listaDisponibles = new ArrayList<>();
+        for (Responsable responsable : todosLosResponsables) {
+            String dni = responsable.getDni();
+            if (!responsablesOcupadosDni.contains(dni)) {
+                listaDisponibles.add(String.format("%s (%s)", responsable.getNombre(), dni));
+            }
+        }
+        
+        return listaDisponibles;
     }
 }

@@ -28,7 +28,7 @@ public class BusSC extends Vehicles{
     public void setValPasajero(float valPasajero) {this.valPasajero = valPasajero;}
     //
     @Override
-    public float calculaCosto(float km, int cantPas, int cantCamas){
+    public float calculaCosto(float km, int cantPas){
         return valPasajero*km*cantPas;
     }
 }

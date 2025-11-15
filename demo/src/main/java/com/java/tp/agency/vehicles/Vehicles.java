@@ -46,7 +46,7 @@ public abstract class Vehicles {
     public void setEstado(Unoccupied disponibilidad){this.estado=disponibilidad;}
     //
 
-    public abstract float calculaCosto(float km, int pasajeros, int cantCamas);
+    public abstract float calculaCosto(float km, int pasajeros);
 
 }
 

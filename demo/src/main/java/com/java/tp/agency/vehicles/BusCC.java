@@ -11,17 +11,19 @@ public class BusCC extends Vehicles{
     public static final int CAPACIDAD = 32;
     public static final int CAMAS_DISPONIBLES = 26;
     public static final int ASIENTOS_COMUNES_MAX = 6;
-    
+    private float valPasajeroAsiento;
     private float valPasajeroCama;
-    private  float valPasajeroAsiento;
 
     public BusCC(String patente,int capacidad,float velPerH){
         super(patente,capacidad,velPerH);
         setCapacidad(32); //pasajeros-cantCamas <= 6, porque solo 6 plazas son comunes
     }
     @Override
-    public float calculaCosto(float km, int pasajeros, int cantCamas) {
-        return (valPasajeroAsiento * pasajeros * km) + (valPasajeroCama * cantCamas * km);
+    public float calculaCosto(float km, int pasajeros) {
+        if(pasajeros <= CAMAS_DISPONIBLES) {
+            return (valPasajeroAsiento * pasajeros * km) + (valPasajeroCama * pasajeros * km);
+        } else
+            return (valPasajeroAsiento * pasajeros * km) + (valPasajeroCama * CAMAS_DISPONIBLES * km);
     }
     public BusCC(){
         super();

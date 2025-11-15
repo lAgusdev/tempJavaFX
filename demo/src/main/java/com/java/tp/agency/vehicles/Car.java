@@ -28,7 +28,7 @@ public class Car extends Vehicles {
     public void setValKm(float valKm){this.valKm=valKm;}
     //
     @Override
-    public float calculaCosto(float km, int cantpas, int cantCamas){
+    public float calculaCosto(float km, int cantpas){
         return valBase + valKm * km;
     }
 

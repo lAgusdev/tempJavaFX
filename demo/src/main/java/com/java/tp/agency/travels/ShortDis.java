@@ -17,7 +17,7 @@ public class ShortDis extends Travel{
         //public Viaje(String inId,String inpatVehiculo ,String inDestino, int inCPasajeros,float inkmRec)
     }
     @Override
-    public float  devuelveValorCalculado(Vehicles vehiculo,Place destino,HashMap<String,Responsable> responsableABordo, int cantPas, int cantCamas){
-        return vehiculo.calculaCosto(destino.getKm(),cantPas,cantCamas);
+    public float  devuelveValorCalculado(Vehicles vehiculo,Place destino,HashMap<String,Responsable> responsableABordo, int cantPas){
+        return vehiculo.calculaCosto(destino.getKm(),cantPas);
     }
 }

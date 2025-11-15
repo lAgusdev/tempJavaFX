@@ -16,19 +16,13 @@
         <children>
             <Label text="Crear Nuevo Viaje" styleClass="titulo-principal"/>
 
-            <Label text="1. Seleccione el destino:"/>
+            <Label text="Seleccione el destino:"/>
             <ComboBox fx:id="destinoComboBox" promptText="Elegir Destino" maxWidth="Infinity"/>
 
-            <Label text="2. Cantidad de Pasajeros:"/>
-            <Spinner fx:id="pasajerosSpinner" maxWidth="Infinity"/>
-            
-            <Label text="3. Kilómetros Realizados:"/>
-            <Spinner fx:id="kmHechosSpinner" maxWidth="Infinity"/>
-
-            <Label text="4. Vehículo Sugerido:"/>
+            <Label text="Vehículo Sugerido:"/>
             <ComboBox fx:id="vehiculoComboBox" promptText="Elegir Vehículo" maxWidth="Infinity"/> 
-            
-            <Label fx:id="responsablesSectionLabel" text="5. Responsables (Sólo Larga distancia):"/>
+
+            <Label fx:id="responsablesSectionLabel" text="Responsables (Sólo Larga distancia):"/>
             <HBox fx:id="responsablesHBox" alignment="CENTER" spacing="10.0" maxWidth="Infinity">
                 <children>
                     <VBox alignment="TOP_CENTER" spacing="5.0" HBox.hgrow="ALWAYS">
@@ -47,6 +41,13 @@
                     </VBox>
                 </children>
             </HBox>
+            
+            <Label text="Cantidad de Pasajeros:"/>
+            <Spinner fx:id="pasajerosSpinner" maxWidth="Infinity"/>
+
+            <Label text="Kilómetros Realizados:"/>
+            <Spinner fx:id="kmHechosSpinner" maxWidth="Infinity"/>
+
             <HBox alignment="CENTER" spacing="10.0">
                 <Label text="Costo del Viaje: " />
                 <Label fx:id="totalValue" style="-fx-text-fill: green; -fx-font-weight: bold; -fx-font-size: 14px;"/>

@@ -45,16 +45,13 @@ public class LongDis extends Travel{
         return total;
     }
     @Override
-    public float devuelveValorCalculado(Vehicles vehiculo, Place destino, HashMap<String,Responsable> responsableABordo, int cantPas, int cantCamas){
-        if (cantPas-cantCamas > 6){
-            throw new CamasLargaDisException("No hay tantos asientos sin cama disponibles");
-        }
+    public float devuelveValorCalculado(Vehicles vehiculo, Place destino, HashMap<String,Responsable> responsableABordo, int cantPas){
         // Usar responsableABordo para calcular sueldos basados en los responsables seleccionados
         float sueldosResponsables = 0;
         for (Responsable responsable : responsableABordo.values()) {
             sueldosResponsables += responsable.getSalario();
         }
-        return vehiculo.calculaCosto(destino.getKm(),cantPas,cantCamas) + sueldosResponsables;
+        return vehiculo.calculaCosto(destino.getKm(),cantPas) + sueldosResponsables;
     }
 
     public TreeSet<String> getPerResponsables() {
