@@ -1,0 +1,5 @@
+--- REPORTE DE VEHÍCULOS DE LA AGENCIA ---
+Colectivo coche-cama: 2
+Colectivo semi-cama: 1
+Combi: 3
+Auto: 4

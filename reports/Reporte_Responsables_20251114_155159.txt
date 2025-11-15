@@ -1,0 +1,8 @@
+--- REPORTE DE RESPONSABLES DE LA AGENCIA ---
+#1 - 12345678 - Franco Colapinto - $95000.0
+#2 - 13251526 - Pablo Lescano - $10000.0
+#3 - 22221536 - Daddy Yankee - $25500.0
+#4 - 25254886 - Ricardo Ford - $80000.0
+#5 - 31323334 - Novak Djokovic - $78000.0
+#6 - 62363526 - Donald Trump - $100000.0
+#7 - 65232147 - Marcelo Gallardo - $20000.0

@@ -1,0 +1,24 @@
+--- REPORTE DE DESTINOS DE LA AGENCIA ---
+#1 - Alemania - 600.0 km
+#2 - Australia - 15000.0 km
+#3 - Brasil - 8000.0 km
+#4 - Canada - 9500.0 km
+#5 - Chile - 900.0 km
+#6 - China - 10500.0 km
+#7 - Cuba - 500.0 km
+#8 - Egipto - 6500.0 km
+#9 - Francia - 200.0 km
+#10 - Grecia - 1800.0 km
+#11 - India - 11000.0 km
+#12 - Indonesia - 13500.0 km
+#13 - Italia - 50.0 km
+#14 - Japón - 12000.0 km
+#15 - Kenia - 7000.0 km
+#16 - Laos - 90.0 km
+#17 - Mexico - 7200.0 km
+#18 - Nueva Zelanda - 16000.0 km
+#19 - Peru - 6800.0 km
+#20 - Portugal - 300.0 km
+#21 - Sudafrica - 9800.0 km
+#22 - Suecia - 2500.0 km
+#23 - Tailandia - 10800.0 km
