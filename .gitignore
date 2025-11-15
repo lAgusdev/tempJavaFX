@@ -1,0 +1,17 @@
+# Archivos de reportes generados automáticamente
+reports/
+
+# Configuración de VS Code
+.vscode/
+
+# Archivos compilados de Maven
+demo/target/
+
+# Archivos de Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log

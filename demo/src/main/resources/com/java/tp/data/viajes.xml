@@ -1,0 +1,50 @@
+<viajes>
+    <cortaDis>
+    <idDestino>Italia</idDestino>
+    <kmRec>50.0</kmRec>
+    <patVehiculo>AS241LO</patVehiculo>
+    <cPasajeros>2</cPasajeros>
+</cortaDis>
+    <cortaDis>
+    <idDestino>Italia</idDestino>
+    <kmRec>20.0</kmRec>
+    <patVehiculo>AS241LO</patVehiculo>
+    <cPasajeros>2</cPasajeros>
+</cortaDis>
+    <cortaDis>
+    <idDestino>Laos</idDestino>
+    <kmRec>0.0</kmRec>
+    <patVehiculo>AA012AA</patVehiculo>
+    <cPasajeros>4</cPasajeros>
+</cortaDis>
+    <largaDis>
+    <idDestino>Egipto</idDestino>
+    <kmRec>0.0</kmRec>
+    <patVehiculo>AA421BB</patVehiculo>
+    <cPasajeros>4</cPasajeros>
+    <dnisPerResponsables>31323334</dnisPerResponsables>
+    <dnisPerResponsables>65232147</dnisPerResponsables>
+</largaDis>
+    <largaDis>
+    <idDestino>Egipto</idDestino>
+    <kmRec>0.0</kmRec>
+    <patVehiculo>AS345LO</patVehiculo>
+    <cPasajeros>4</cPasajeros>
+    <dnisPerResponsables>13251526</dnisPerResponsables>
+    <dnisPerResponsables>62363526</dnisPerResponsables>
+</largaDis>
+    <largaDis>
+    <idDestino>Alemania</idDestino>
+    <kmRec>10.0</kmRec>
+    <patVehiculo>AB012AA</patVehiculo>
+    <cPasajeros>6</cPasajeros>
+    <dnisPerResponsables>12345678</dnisPerResponsables>
+</largaDis>
+    <largaDis>
+    <idDestino>Alemania</idDestino>
+    <kmRec>40.0</kmRec>
+    <patVehiculo>AB012AA</patVehiculo>
+    <cPasajeros>6</cPasajeros>
+    <dnisPerResponsables>12345678</dnisPerResponsables>
+</largaDis>
+</viajes>
