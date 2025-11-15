@@ -49,12 +49,6 @@ public class App extends Application {
         }
         
         stage.setScene(scene);
-        stage.setOnCloseRequest(event -> {
-            System.out.println("Guardando viajes antes de cerrar...");
-            com.java.tp.agency.dataController.DataController dc = new com.java.tp.agency.dataController.DataController();
-            dc.serializaViajes();
-            System.out.println("Viajes guardados exitosamente.");
-        });
         stage.show();
     }
 

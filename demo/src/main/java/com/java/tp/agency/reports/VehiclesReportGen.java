@@ -15,7 +15,7 @@ import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class ReportVehicles {
+public class VehiclesReportGen {
     
     public static List<String> getVehiculosFormateados() {
         HashMap<String, Travel> viajes = Agency.getInstancia().getViajes();

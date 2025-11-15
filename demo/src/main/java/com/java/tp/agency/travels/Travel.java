@@ -5,7 +5,6 @@ import com.java.tp.agency.responsables.Responsable;
 import com.java.tp.agency.vehicles.Vehicles;
 import com.java.tp.agency.enums.TravelStatus;
 import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlTransient;
 

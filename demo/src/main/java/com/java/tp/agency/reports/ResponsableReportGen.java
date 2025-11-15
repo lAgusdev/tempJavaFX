@@ -13,7 +13,7 @@ import com.java.tp.agency.Agency;
 import com.java.tp.agency.responsables.Responsable;
 import com.java.tp.agency.travels.Travel;
 
-public class ReportResponsable {
+public class ResponsableReportGen {
 
     public static List<String> getResponsablesFormateados() {
         HashMap<String, Responsable> todosLosResponsables = Agency.getInstancia().getResponsables();

@@ -13,7 +13,7 @@ import com.java.tp.agency.Agency;
 import com.java.tp.agency.places.Place;
 import com.java.tp.agency.travels.Travel;
 
-public class ReportPlaces {
+public class PlacesReportGen {
     
     public static List<String> getKmDestino() {
         TreeMap<String, Place> destinos = Agency.getInstancia().getDestinos();

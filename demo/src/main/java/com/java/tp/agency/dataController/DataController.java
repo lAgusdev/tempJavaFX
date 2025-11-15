@@ -9,7 +9,6 @@ import java.io.*;
 import java.util.*;
 import jakarta.xml.bind.*;
 import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 
@@ -43,7 +42,6 @@ public class DataController {
             //caso de que no exista el archivo
             if (is == null) {
                 System.out.println("Recurso no encontrado: com/java/tp/data/responsables.xml");
-                //No debería ser una excepion???
                 return;
             }
             XMLStreamReader reader = factory.createXMLStreamReader(is);

@@ -15,7 +15,6 @@ public class MainMenuController {
     }
     @FXML
     private void switchToExit() throws IOException {
-        com.java.tp.agency.Agency.getInstancia().saveTravelsData();
         Platform.exit();
     }
 }
