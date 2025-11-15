@@ -233,6 +233,26 @@ public class DataController {
                         v.setId(agency.creaIdViaje(v.getIdDestino()));
                         v.setEstado(v.actualizaEstadoViaje(v.getIdDestino(), agency.getDestinos()));
                         via.put(v.getId(), v);
+                        
+                        // Actualizar estado de vehículo si el viaje está activo o en curso
+                        if (v.getEstado() == com.java.tp.agency.enums.TravelStatus.PENDIENTE || 
+                            v.getEstado() == com.java.tp.agency.enums.TravelStatus.EN_CURSO) {
+                            com.java.tp.agency.vehicles.Vehicles vehiculo = agency.getVehiculos().get(v.getPatVehiculo());
+                            if (vehiculo != null) {
+                                vehiculo.setEstado(com.java.tp.agency.enums.Unoccupied.OCUPADO);
+                            }
+                            
+                            // Actualizar estado de responsables si el viaje está activo o en curso
+                            java.util.TreeSet<String> responsablesDni = v.getPerResponsables();
+                            if (responsablesDni != null && !responsablesDni.isEmpty()) {
+                                for (String dni : responsablesDni) {
+                                    com.java.tp.agency.responsables.Responsable responsable = agency.getResponsables().get(dni);
+                                    if (responsable != null) {
+                                        responsable.setEstado(com.java.tp.agency.enums.Unoccupied.OCUPADO);
+                                    }
+                                }
+                            }
+                        }
                     } catch (Exception e) {
                         System.out.println("Viaje inválido al asignar id/estado: " + e.getMessage());
                     }

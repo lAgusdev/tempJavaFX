@@ -1,6 +1,4 @@
 package com.java.tp.agency.responsables;
-import com.java.tp.agency.responsables.Responsable;
-
 
 public class ResponsableKM {
     private String dni;

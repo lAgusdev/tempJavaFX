@@ -2,7 +2,6 @@ package com.java.tp.guiControllers;
 import java.io.IOException;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import com.java.tp.agency.Agency;
 
 public class MainMenuController {
 

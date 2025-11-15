@@ -7,6 +7,9 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlRootElement(name = "combi")
 public class MiniBus extends Vehicles {
+    
+    public static final int CAPACIDAD = 16;
+    
     private float valBase;
     private float valPasajero;
 

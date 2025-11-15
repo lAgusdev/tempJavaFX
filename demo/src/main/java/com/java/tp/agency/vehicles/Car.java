@@ -4,6 +4,8 @@ import jakarta.xml.bind.annotation. *;
 @XmlRootElement(name = "auto")
 public class Car extends Vehicles {
 
+    public static final int CAPACIDAD = 4;
+    
     private float valBase;
     private float valKm;
 

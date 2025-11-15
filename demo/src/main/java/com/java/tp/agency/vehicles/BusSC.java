@@ -7,6 +7,9 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlRootElement(name = "colectivoSC")
 public class BusSC extends Vehicles{
+    
+    public static final int CAPACIDAD = 40;
+    
     private float valPasajero;
 
     public BusSC(String patente,int capacidad,float velPerH){

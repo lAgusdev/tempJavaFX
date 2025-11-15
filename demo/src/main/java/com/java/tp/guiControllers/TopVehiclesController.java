@@ -35,16 +35,14 @@ public class TopVehiclesController {
             System.out.println("No se pudieron cargar los vehículos: " + e.getMessage());
         }
     }
-
     @FXML
     private void generateReport() {
         try {
-            ReportVehicles.generateReport();
+            ReportPlaces.generateReport();
         } catch (IOException e) {
             System.err.println("Error al generar el reporte: " + e.getMessage());
         }
     }
-    
     @FXML
     private void switchToMainMenu() throws IOException {
         App.setRoot("reportMenu");

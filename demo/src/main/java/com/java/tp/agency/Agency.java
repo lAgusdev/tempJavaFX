@@ -141,4 +141,165 @@ public class Agency {
             System.out.println("Error al guardar datos de viajes: " + e.getMessage());
         }
     }
+    
+    /**
+     * Retorna un mapa con las distancias de todos los destinos
+     */
+    public Map<String, Integer> getDistancias() {
+        Map<String, Integer> distancias = new TreeMap<>();
+        for (Place destino : destinos.values()) {
+            distancias.put(destino.getId(), (int) destino.getKm());
+        }
+        return distancias;
+    }
+    
+    /**
+     * Retorna una lista de vehículos disponibles para viajes de larga distancia
+     * (Combi, Semi-Cama, Coche-Cama)
+     */
+    public List<String> getVehiculosParaLargaDistancia() {
+        List<String> vehiculosLarga = new ArrayList<>();
+        HashMap<String, Vehicles> disponibles = VehiculosDisponibles();
+        
+        for (Vehicles vehiculo : disponibles.values()) {
+            int capacidad = vehiculo.getCapacidad();
+            String patente = vehiculo.getPatente();
+            String descripcion;
+            
+            switch (capacidad) {
+                case 32: // Coche Cama
+                    descripcion = "Colectivo Coche Cama: " + patente;
+                    vehiculosLarga.add(descripcion);
+                    break;
+                case 40: // Semi Cama
+                    descripcion = "Colectivo Semi Cama: " + patente;
+                    vehiculosLarga.add(descripcion);
+                    break;
+                case 16: // Minibus
+                    descripcion = "Combi: " + patente;
+                    vehiculosLarga.add(descripcion);
+                    break;
+            }
+        }
+        
+        return vehiculosLarga;
+    }
+    
+    /**
+     * Retorna una lista de vehículos disponibles para viajes de corta distancia
+     * (Auto, Combi, Semi-Cama)
+     */
+    public List<String> getVehiculosParaCortaDistancia() {
+        List<String> vehiculosCorta = new ArrayList<>();
+        HashMap<String, Vehicles> disponibles = VehiculosDisponibles();
+        
+        for (Vehicles vehiculo : disponibles.values()) {
+            int capacidad = vehiculo.getCapacidad();
+            String patente = vehiculo.getPatente();
+            String descripcion;
+            
+            switch (capacidad) {
+                case 4: // Auto
+                    descripcion = "Auto: " + patente;
+                    vehiculosCorta.add(descripcion);
+                    break;
+                case 16: // Minibus
+                    descripcion = "Combi: " + patente;
+                    vehiculosCorta.add(descripcion);
+                    break;
+                case 40: // Semi Cama
+                    descripcion = "Colectivo Semi Cama: " + patente;
+                    vehiculosCorta.add(descripcion);
+                    break;
+            }
+        }
+        
+        return vehiculosCorta;
+    }
+    
+    /**
+     * Extrae la patente de un string con formato "Tipo: Patente"
+     */
+    public static String extraerPatente(String vehiculoSeleccionado) {
+        if (vehiculoSeleccionado == null) {
+            return null;
+        }
+        
+        if (vehiculoSeleccionado.contains(": ")) {
+            return vehiculoSeleccionado.substring(vehiculoSeleccionado.indexOf(": ") + 2);
+        }
+        
+        return vehiculoSeleccionado;
+    }
+    
+    /**
+     * Calcula el costo de un viaje sin crearlo
+     * @param destinoId ID del destino
+     * @param vehiculoDescripcion Descripción del vehículo (puede incluir "Tipo: Patente")
+     * @param pasajeros Cantidad de pasajeros
+     * @param dniResponsables DNIs de los responsables (puede ser null para viajes cortos)
+     * @return El costo calculado del viaje
+     */
+    public double calcularCostoViaje(String destinoId, String vehiculoDescripcion, int pasajeros, TreeSet<String> dniResponsables) {
+        // Extraer patente
+        String patente = extraerPatente(vehiculoDescripcion);
+        
+        // Obtener objetos de negocio
+        Vehicles vehiculo = vehiculos.get(patente);
+        Place destino = destinos.get(destinoId);
+        
+        if (vehiculo == null || destino == null) {
+            return 0.0;
+        }
+        
+        // Determinar tipo de viaje
+        boolean esLargaDistancia = destino.getKm() >= 100;
+        
+        // Calcular camas si es coche cama
+        int cantCamas = 0;
+        if (vehiculo.getCapacidad() == 32) { // Coche cama
+            cantCamas = com.java.tp.agency.vehicles.BusCC.calcularCamasOptimas(pasajeros);
+        }
+        
+        // Obtener responsables
+        HashMap<String, Responsable> responsablesDelViaje = new HashMap<>();
+        if (esLargaDistancia && dniResponsables != null) {
+            for (String dni : dniResponsables) {
+                Responsable r = responsables.get(dni);
+                if (r != null) {
+                    responsablesDelViaje.put(dni, r);
+                }
+            }
+        }
+        
+        // Crear instancia temporal y calcular costo
+        Travel viajeTemporal;
+        if (esLargaDistancia) {
+            viajeTemporal = new LongDis();
+        } else {
+            viajeTemporal = new ShortDis();
+        }
+        
+        try {
+            return viajeTemporal.devuelveValorCalculado(
+                vehiculo,
+                destino,
+                responsablesDelViaje,
+                pasajeros,
+                cantCamas
+            );
+        } catch (Exception e) {
+            System.err.println("Error al calcular costo: " + e.getMessage());
+            return 0.0;
+        }
+    }
+    
+    /**
+     * Obtiene la capacidad de un vehículo a partir de su descripción
+     */
+    public int getCapacidadVehiculo(String vehiculoDescripcion) {
+        String patente = extraerPatente(vehiculoDescripcion);
+        Vehicles vehiculo = vehiculos.get(patente);
+        return (vehiculo != null) ? vehiculo.getCapacidad() : -1;
+    }
 }
