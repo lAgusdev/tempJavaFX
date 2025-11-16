@@ -1,10 +1,14 @@
+/**
+ * Esta clase es la encargada de generar reportes relacionados con los destinos de la agencia y generar un archivo de reporte TXT.
+ * A partir de calcular los ganancias acumuladas por cada destino.
+ */
 package com.java.tp.agency.reports;
 
 import java.io.IOException;
-import java.nio.file.Files; // Para manejo de archivos
-import java.nio.file.Path; // Para definir la ruta
-import java.time.LocalDateTime; // Para el timestamp
-import java.time.format.DateTimeFormatter; // Para formatear el timestamp
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.TreeMap;

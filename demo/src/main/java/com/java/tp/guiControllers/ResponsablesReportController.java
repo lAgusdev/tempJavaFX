@@ -1,3 +1,7 @@
+/**
+* Esta clase se encarga de controlar el apartado grafico del reporte de responsables y su total.
+* Mostrando el reporte y la opción de generarlo en un archivo de texto.
+*/
 package com.java.tp.guiControllers;
 import java.io.IOException;
 import java.util.List;

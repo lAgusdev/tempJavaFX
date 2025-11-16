@@ -1,3 +1,8 @@
+/**
+ * Esta subclase representa las Combis Sin-Cama con su patente, capacidad, velocidad promedio por hora y estado.
+ * Es utilizada para que el parser JAXB pueda mapear los datos XML a objetos Java. Lo que permite obtener los diferentes datos de cada destino.
+ * Y a su vez contiene el metodo abstracto calculaCosto con la implementación específica para Sin-Cama.
+ */
 package com.java.tp.agency.vehicles;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;

@@ -1,3 +1,8 @@
+/**
+* Esta clase se encarga de controlar el apartado grafico del reporte de destinos y su total.
+* Mostrando el reporte y la opción de generarlo en un archivo de texto.
+*/
+
 package com.java.tp.guiControllers;
 import com.java.tp.App;
 import com.java.tp.agency.reports.PlacesReportGen;

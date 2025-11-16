@@ -14,7 +14,9 @@ import com.java.tp.agency.Agency;
  * @author Manuel Juárez
  * @author Gaspar Puente Villaroel
  * @author Agustin Nodar
- * @version 1.0
+ * Entrega Final - T.P. Agencia de Viajes
+ * 
+ * Esta es la clase principal que inicia la aplicación JavaFX e instancia el singleton Agency.
  */
 
 /** main */

@@ -1,8 +1,11 @@
+/**
+ * Esta clase representa un responsable con su nombre, DNI, salario y estado.
+ * Es utilizada para que el parser JAXB pueda mapear los datos XML a objetos Java. Lo que permite obtener los diferentes datos de cada responsable.
+ */
 package com.java.tp.agency.responsables;
 import com.java.tp.agency.exceptions.ResponsableInvalidoException;
 import com.java.tp.agency.enums.Unoccupied;
 import jakarta.xml.bind.annotation.*;
-
 
 @XmlRootElement(name = "responsable")
 public class Responsable {

@@ -1,3 +1,7 @@
+/**
+* Esta clase se encarga de controlar el apartado grafico de un submenú para que el usario decida a que reporte quiere acceder.
+* Permitiendo acceder a algun reporte o volver al menuprincipal.
+*/
 package com.java.tp.guiControllers;
 import java.io.IOException;
 

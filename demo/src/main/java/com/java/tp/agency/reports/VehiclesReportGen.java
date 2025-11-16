@@ -1,10 +1,13 @@
+/**
+ * Esta clase es la encargada de generar reportes relacionados con cada tipo de vehiculo que tiene la agencia y generar un archivo de reporte TXT.
+ * A partir de calcular las ganancias acumuladas por cada tipo de vehiculo.
+ */
 package com.java.tp.agency.reports;
 import com.java.tp.agency.Agency;
 import com.java.tp.agency.places.Place;
 import com.java.tp.agency.travels.Travel;
 import com.java.tp.agency.vehicles.Vehicles;
 import com.java.tp.agency.responsables.Responsable;
-
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;

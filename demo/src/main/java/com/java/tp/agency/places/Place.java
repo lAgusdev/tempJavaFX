@@ -1,3 +1,8 @@
+/**
+ * Esta clase representa un destino con su identificador y la distancia en kilómetros.
+ * Es utilizada para que el parser JAXB pueda mapear los datos XML a objetos Java. Lo que permite obtener los diferentes datos de cada destino.
+ */
+
 package com.java.tp.agency.places;
 
 import jakarta.xml.bind.annotation.XmlRootElement;
@@ -11,18 +16,14 @@ public class Place {
     public Place() {
         // JAXB lo usa para crear la instancia antes de llamar a los setters.
     }
-
     @XmlElement
     public float getKm() {
         return km;
     }
-
-
     @XmlElement
     public String getId() {
         return id;
     }
-
     public void setId(String inid) {
         id = inid;
     }

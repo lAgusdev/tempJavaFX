@@ -1,3 +1,9 @@
+/**
+ * Esta subclase representa las Colectivos Coche-Cama con su patente, capacidad, velocidad promedio por hora y estado.
+ * Es utilizada para que el parser JAXB pueda mapear los datos XML a objetos Java. Lo que permite obtener los diferentes datos de cada destino.
+ * A su vez contiene el metodo abstracto calculaCosto con la implementación específica para Colectivos Coche-Cama.
+ * Y al mismo tiempo tienen el metodo calcularCamasOptimas que determina la cantidad de pasajeros en camas y asientos normales.
+ */
 package com.java.tp.agency.vehicles;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;

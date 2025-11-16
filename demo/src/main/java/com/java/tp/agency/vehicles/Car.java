@@ -1,3 +1,8 @@
+/**
+ * Esta subclase representa las autos con su patente, capacidad, velocidad promedio por hora y estado.
+ * Es utilizada para que el parser JAXB pueda mapear los datos XML a objetos Java. Lo que permite obtener los diferentes datos de cada destino.
+ * Y a su vez contiene el metodo abstracto calculaCosto con la implementación específica para autos.
+ */
 package com.java.tp.agency.vehicles;
 import jakarta.xml.bind.annotation. *;
 @XmlAccessorType(XmlAccessType.PROPERTY)

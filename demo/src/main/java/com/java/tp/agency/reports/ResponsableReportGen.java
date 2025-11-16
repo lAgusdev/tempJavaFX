@@ -1,3 +1,7 @@
+/**
+ * Esta clase es la encargada de generar reportes relacionados con los responsables de la agencia y generar un archivo de reporte TXT.
+ * A partir de calcular los kilómetros acumulados por cada responsable y su ordenamiento.
+ */
 package com.java.tp.agency.reports;
 
 import java.io.IOException;

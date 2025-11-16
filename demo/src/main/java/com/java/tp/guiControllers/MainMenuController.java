@@ -1,3 +1,7 @@
+/**
+* Esta clase se encarga de controlar el apartado grafico del menú principal de la aplicación.
+* Permitiendo acceder a los diferentes submenus o salir de la aplicación.
+*/
 package com.java.tp.guiControllers;
 import java.io.IOException;
 import javafx.application.Platform;
