@@ -64,7 +64,7 @@ public class DataController {
                         }
                         res.put(r.getDni(), r);
                     } catch (Exception e) {
-                        System.out.println("Responsable inválido," + e.getMessage());
+                        System.out.println("Responsable invalido," + e.getMessage());
                     }
                 }
                 reader.next();
@@ -104,7 +104,7 @@ public class DataController {
                         }
                         des.put(d.getId(), d);
                     } catch (Exception e) {
-                        System.out.println("Destino inválido, " + e.getMessage());
+                        System.out.println("Destino invalido, " + e.getMessage());
                     }
                 }
                 reader.next();
@@ -152,10 +152,10 @@ public class DataController {
                             case "auto" : 
                                 Car a = (Car) v;
                                 if (a.getValKm() <= 0) {
-                                    throw new VehiculoInvalidoException("Auto con valor por Km inválido");
+                                    throw new VehiculoInvalidoException("Auto con valor por Km invalido");
                                 }
                                 if(a.getValBase()<=0){
-                                    throw new VehiculoInvalidoException("Auto con valor base inválido");
+                                    throw new VehiculoInvalidoException("Auto con valor base invalido");
                                 }
                             break;
                             case "combi" :
@@ -170,7 +170,7 @@ public class DataController {
                             case "colectivoSC" :
                                 BusSC sc= (BusSC) v;
                                 if (sc.getValPasajero()<= 0) {
-                                    throw new VehiculoInvalidoException("Colectivo con valor por Pasajero inválido");
+                                    throw new VehiculoInvalidoException("Colectivo con valor por Pasajero invalido");
                                 }
                             break;
                             case "colectivoCC" :
@@ -186,7 +186,7 @@ public class DataController {
                         }
                         veh.put(v.getPatente(), v);
                     }catch (Exception e) {
-                        System.out.println("vehiculo inválido, " + e.getMessage());
+                        System.out.println("vehiculo invalido, " + e.getMessage());
                     }
 
                 }else{
@@ -256,7 +256,7 @@ public class DataController {
                             }
                         }
                     } catch (Exception e) {
-                        System.out.println("Viaje inválido al asignar id/estado: " + e.getMessage());
+                        System.out.println("Viaje invalido al asignar id/estado: " + e.getMessage());
                     }
                 }
                 reader.next();

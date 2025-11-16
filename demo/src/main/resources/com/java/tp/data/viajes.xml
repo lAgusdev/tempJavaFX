@@ -6,6 +6,14 @@
     <patVehiculo>AS241LO</patVehiculo>
     <cPasajeros>2</cPasajeros>
 </cortaDis>
+    <largaDis>
+    <id>Chile-1</id>
+    <idDestino>Chile</idDestino>
+    <kmRec>20.0</kmRec>
+    <patVehiculo>AB012AA</patVehiculo>
+    <cPasajeros>3</cPasajeros>
+    <dnisPerResponsables>25254886</dnisPerResponsables>
+</largaDis>
     <cortaDis>
     <id>Italia-1</id>
     <idDestino>Italia</idDestino>

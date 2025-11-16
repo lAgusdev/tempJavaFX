@@ -1,4 +1,11 @@
-
+/**
+ * Controlador para la interfaz de creación de nuevos viajes.
+ * Permite seleccionar destino, vehículos disponisbles (dependiendo el tipo de viaje), cantidad de pasajeros, 
+ * kilómetros hechos (en caso de ser 0 se entiende que el viaje es pendiente) y en el caso de larga distancia los responsables disponibles.
+ * A su vez calcula y muestra el costo total del viaje en tiempo real.
+ * Valida la informacion del usuario en caso de errores muestra las excepciones.
+ * Y por ultimo se serializan todos los viajes cada vez que se crea uno nuevo.
+ */
 package com.java.tp.guiControllers;
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -124,7 +131,7 @@ private void actualizarCostoLabel() {
                         if (!newValue.isEmpty()) kmHechosSpinner.getEditor().setText(oldValue);
                     }
                 } catch (NumberFormatException e) {
-                    // Si el texto está vacío, lo ignoramos. Si es inválido, revertimos.
+                    // Si el texto está vacío, lo ignoramos. Si es invalido, revertimos.
                     if (!newValue.isEmpty()) {
                         kmHechosSpinner.getEditor().setText(oldValue);
                     }
@@ -158,9 +165,7 @@ private void actualizarCostoLabel() {
         }
     }
     
-    /**
-     * Lógica de Distancia: Oculta/Muestra Responsables y actualiza Vehículos
-     */
+    //Lógica de Distancia: Oculta/Muestra Responsables y actualiza Vehículos
     private void actualizarOpcionesDeViaje(String destino) {
         if (destino == null) return;
         
@@ -178,10 +183,8 @@ private void actualizarCostoLabel() {
         // 2. LÓGICA DE VEHÍCULOS (Actualiza las opciones del ComboBox)
         actualizarVehiculos(esLargaDistancia);
     }
-    
-    /**
-     * Configura el ComboBox de Vehículos basado en la distancia
-     */
+
+    //Configura el ComboBox de Vehículos basado en la distancia
     private void actualizarVehiculos(boolean esLargaDistancia) {
         List<String> opcionesVehiculos = esLargaDistancia 
             ? Agency.getInstancia().getVehiculosParaLargaDistancia()
@@ -197,8 +200,7 @@ private void actualizarCostoLabel() {
         }
     }
 
-    // --- Métodos para mover responsables entre listas ---
-
+    // Métodos para mover responsables entre listas
     @FXML
     private void agregarResponsable() {
         ObservableList<String> selected = responsablesDisponiblesListView.getSelectionModel().getSelectedItems();
@@ -221,8 +223,7 @@ private void actualizarCostoLabel() {
         }
     }
 
-    // --- Método de Acción principal ---
-
+    // Método de Acción principal
     @FXML
     private void switchToMainMenu() throws IOException {
         App.setRoot("mainMenu");
@@ -258,9 +259,7 @@ private void actualizarCostoLabel() {
             mostrarAlerta("Error de Selección", "Para viajes de larga distancia, debes seleccionar al menos un responsable.");
             return;
         }
-        
-        // 2. Lógica de Negocio y Persistencia
-        
+               
         // Crear el viaje en la Agency
         try {
             Agency.getInstancia().crearViaje(destino, vehiculo, pasajeros, (float) kmHechos, responsablesDNI);
