@@ -1,0 +1,117 @@
+<responsables>
+    <responsable>
+        <nombre>Franco Colapinto</nombre>
+        <dni>12345678</dni>
+        <salario>95000</salario>
+    </responsable>
+
+    <responsable>
+        <nombre>john doe</nombre>
+        <dni>87654321</dni>
+        <salario>-20000</salario>
+    </responsable>
+
+    <responsable>
+        <nombre>Ricardo Ford</nombre>
+        <dni>25254886</dni>
+        <salario>80000</salario>
+    </responsable>
+
+    <responsable>
+        <nombre>Pablo Lescano</nombre>
+        <dni>13251526</dni>
+        <salario>10000</salario>
+    </responsable>
+
+    <responsable>
+        <nombre>Marcelo Gallardo</nombre>
+        <dni>65232147</dni>
+        <salario>20000</salario>
+    </responsable>
+
+    <responsable>
+        <nombre>Donald Trump</nombre>
+        <dni>62363526</dni>
+        <salario>100000</salario>
+    </responsable>
+
+    <responsable>
+        <nombre>Dua Lipá</nombre>
+        <dni>4515689552</dni>
+        <salario>45000.5</salario>
+    </responsable>
+
+    <responsable>
+        <nombre>Daddy Yankee</nombre>
+        <dni>22221536</dni>
+        <salario>25500</salario>
+    </responsable>
+
+    <responsable>
+        <nombre>Novak Djokovic</nombre>
+        <dni>31323334</dni>
+        <salario>78000</salario>
+    </responsable>
+    <responsable>
+        <nombre>David Medina</nombre>
+        <dni>AAAAAAAA</dni>
+        <salario>20000</salario>
+    </responsable>
+<responsable>
+        <nombre>Lionel Messi</nombre>
+        <dni>30000001</dni>
+        <salario>0</salario>
+    </responsable>
+
+    <responsable>
+        <nombre>María Peñaloza</nombre>
+        <dni>44556677</dni>
+        <salario>52000</salario>
+    </responsable>
+
+    <responsable>
+        <nombre>Javier Milei</nombre>
+        <dni></dni>
+        <salario>120000</salario>
+    </responsable>
+
+    <responsable>
+        <nombre>Taylor Swift</nombre>
+        <dni>50505050</dni>
+        <salario>999999999</salario>
+    </responsable>
+
+    <responsable>
+        <nombre>Elton John</nombre>
+        <dni>11-22-33-44</dni>
+        <salario>75500</salario>
+    </responsable>
+
+    <responsable>
+        <nombre>Serena Williams</nombre>
+        <dni>60606060</dni>
+        <salario>85000.12345</salario>
+    </responsable>
+
+    <responsable>
+        <nombre>Roger Federer</nombre>
+        <dni>00000000</dni>
+        <salario>67000</salario>
+    </responsable>
+
+    <responsable>
+        <nombre>cristiano ronaldo</nombre>
+        <dni>70707070</dni>
+        <salario>110000</salario>
+    </responsable>
+
+    <responsable>
+        <nombre>Michael Jordan</nombre>
+        <dni>80808080</dni>
+        </responsable>
+
+    <responsable>
+        <nombre>Adele</nombre>
+        <salario>90000</salario>
+    </responsable>
+</responsables>

@@ -42,16 +42,24 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <show>private</show>
+                    <sourcepath>src/main/java</sourcepath>
+                    <subpackages>com.java.tp</subpackages>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.6</version>
                 <executions>
                     <execution>
-                        <!-- Default configuration for running -->
-                        <!-- Usage: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.java.tp.App</mainClass>
+                            <mainClass>com.java.tp/com.java.tp.App</mainClass>
                         </configuration>
                     </execution>
                 </executions>

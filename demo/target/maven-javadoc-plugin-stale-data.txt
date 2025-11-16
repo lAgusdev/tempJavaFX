@@ -1,0 +1,52 @@
+@options
+--module-path
+'C:/Users/agust/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar;C:/Users/agust/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-win.jar;C:/Users/agust/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar;C:/Users/agust/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-win.jar;C:/Users/agust/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar;C:/Users/agust/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-win.jar;C:/Users/agust/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar;C:/Users/agust/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-win.jar;C:/Users/agust/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar;C:/Users/agust/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar;C:/Users/agust/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.2/jaxb-runtime-4.0.2.jar;C:/Users/agust/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.2/jaxb-core-4.0.2.jar;C:/Users/agust/.m2/repository/org/glassfish/jaxb/txw2/4.0.2/txw2-4.0.2.jar;C:/Users/agust/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.1/istack-commons-runtime-4.1.1.jar'
+-encoding
+'UTF-8'
+-private
+-source
+'11'
+-sourcepath
+'Z:/000---TP FINAl/tempJavaFX/demo/src/main/java'
+-subpackages
+com.java.tp
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'Z:/000---TP FINAl/tempJavaFX/demo/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'demo 7 API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' 'Z:/000---TP FINAl/tempJavaFX/demo/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'demo 7 API'
+Z:\000---TP FINAl\tempJavaFX\demo\src\main\java\module-info.java = 1763328543306
+Z:\000---TP FINAl\tempJavaFX\demo\src\main\java = 1763328543306
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\allclasses-index.html = 1763333701077
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\allpackages-index.html = 1763333701081
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\constant-values.html = 1763333700915
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\copy.svg = 1763333701166
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\element-list = 1763333700741
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\help-doc.html = 1763333701161
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\index-all.html = 1763333701134
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\index.html = 1763333701140
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\link.svg = 1763333701166
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\member-search-index.js = 1763333701085
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\module-search-index.js = 1763333701082
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\overview-tree.html = 1763333701046
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\package-search-index.js = 1763333701083
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\script.js = 1763333701164
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\search-page.js = 1763333701169
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\search.html = 1763333701137
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\search.js = 1763333701168
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\serialized-form.html = 1763333700928
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\stylesheet.css = 1763333701163
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\tag-search-index.js = 1763333701086
+Z:\000---TP FINAl\tempJavaFX\demo\target\site\apidocs\type-search-index.js = 1763333701084

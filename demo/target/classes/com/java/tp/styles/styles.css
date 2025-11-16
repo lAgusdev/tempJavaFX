@@ -1,0 +1,61 @@
+
+.root {
+    /* Establece un color de fondo claro para toda la ventana */
+    -fx-background-color: #f4f4f4;
+}
+
+
+.label {
+    /* Estilo por defecto para todas las etiquetas */
+    -fx-font-family: "Arial";
+    -fx-text-fill: #050505;
+}
+
+/* Aplica este estilo a la etiqueta "Crear Viaje" usando styleClass="titulo-principal" */
+.titulo-principal {
+    -fx-font-size: 24pt;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 10px 0; /* Espacio inferior */
+}
+
+.button {
+    /* Estilo por defecto para todos los botones */
+    -fx-background-color: #007bff; /* Azul primario */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 25px;
+    -fx-background-radius: 5px; /* Bordes ligeramente redondeados */
+    -fx-min-width: 150px;
+}
+
+/* Estilo al pasar el ratón por encima del botón */
+.button:hover {
+    -fx-background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+}
+
+
+.combo-box {
+    -fx-pref-width: 250px; /* Ancho preferido para que se vea bien */
+    -fx-font-size: 13px;
+    -fx-background-color: white;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+}
+
+.list-view {
+    -fx-pref-width: 400px;
+    -fx-pref-height: 300px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-background-color: white;
+}
+
+.reportsButtons {
+    -fx-padding: 10px;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 25px;
+    -fx-background-radius: 5px; /* Bordes ligeramente redondeados */
+    -fx-min-width: 150px;
+    /* opciones visuales adicionales */
+}
