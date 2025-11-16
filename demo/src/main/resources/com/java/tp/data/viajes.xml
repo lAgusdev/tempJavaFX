@@ -14,38 +14,11 @@
     <cPasajeros>2</cPasajeros>
 </cortaDis>
     <largaDis>
-    <id>Australia-1</id>
-    <idDestino>Australia</idDestino>
-    <kmRec>8.0</kmRec>
-    <patVehiculo>AB012AA</patVehiculo>
-    <cPasajeros>7</cPasajeros>
-    <dnisPerResponsables>12345678</dnisPerResponsables>
-    <dnisPerResponsables>22221536</dnisPerResponsables>
-    <dnisPerResponsables>25254886</dnisPerResponsables>
-</largaDis>
-    <cortaDis>
-    <id>Laos-1</id>
-    <idDestino>Laos</idDestino>
+    <id>Alemania-1</id>
+    <idDestino>Alemania</idDestino>
     <kmRec>0.0</kmRec>
-    <patVehiculo>AA012AA</patVehiculo>
-    <cPasajeros>4</cPasajeros>
-</cortaDis>
-    <largaDis>
-    <id>Egipto-1</id>
-    <idDestino>Egipto</idDestino>
-    <kmRec>0.0</kmRec>
-    <patVehiculo>AA421BB</patVehiculo>
-    <cPasajeros>4</cPasajeros>
-    <dnisPerResponsables>31323334</dnisPerResponsables>
+    <patVehiculo>A120AA</patVehiculo>
+    <cPasajeros>5</cPasajeros>
     <dnisPerResponsables>65232147</dnisPerResponsables>
-</largaDis>
-    <largaDis>
-    <id>Egipto-2</id>
-    <idDestino>Egipto</idDestino>
-    <kmRec>0.0</kmRec>
-    <patVehiculo>AS345LO</patVehiculo>
-    <cPasajeros>4</cPasajeros>
-    <dnisPerResponsables>13251526</dnisPerResponsables>
-    <dnisPerResponsables>62363526</dnisPerResponsables>
 </largaDis>
 </viajes>
