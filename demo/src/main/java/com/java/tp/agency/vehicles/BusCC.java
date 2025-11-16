@@ -1,7 +1,7 @@
 /**
- * Esta subclase representa las Colectivos Coche-Cama con su patente, capacidad, velocidad promedio por hora y estado.
- * Es utilizada para que el parser JAXB pueda mapear los datos XML a objetos Java. Lo que permite obtener los diferentes datos de cada destino.
- * A su vez contiene el metodo abstracto calculaCosto con la implementación específica para Colectivos Coche-Cama.
+ * Esta subclase que es heredada de Vehicles y representa los Colectivos Coche-Cama con su ID, patente del vehículo, destino, cantidad de pasajeros, estado y kilómetros recorridos.
+ * Es utilizada para determinar la cantidad de ambos tipos de asientos, y la informacion obtenida del parser JAXB.
+ * A su vez contiene el metodo calculaCosto con la implementación específica para Colectivos Coche-Cama.
  * Y al mismo tiempo tienen el metodo calcularCamasOptimas que determina la cantidad de pasajeros en camas y asientos normales.
  */
 package com.java.tp.agency.vehicles;
@@ -46,10 +46,6 @@ public class BusCC extends Vehicles{
     public void setValPasajeroCama(float valPasajeroCama) {this.valPasajeroCama = valPasajeroCama;}
     //
     
-    /**
-     * Calcula la cantidad óptima de camas según la cantidad de pasajeros
-     * respetando las restricciones: máximo 26 camas y máximo 6 asientos comunes
-     */
     public static int calcularCamasOptimas(int pasajeros) {
         // Calcular camas: máximo 26, pero asegurando que queden máximo 6 asientos comunes
         int cantCamas = Math.min(pasajeros, CAMAS_DISPONIBLES);

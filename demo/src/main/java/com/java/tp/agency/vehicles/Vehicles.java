@@ -1,5 +1,5 @@
 /**
- * Esta clase representa un vehiculo con su patente, capacidad, velocidad promedio por hora y estado.
+ * Esta es una clse abstracta padre que representa un vehículo con su patente, capacidad, velocidad promedio por hora y estado.
  * Es utilizada para que el parser JAXB pueda mapear los datos XML a objetos Java. Lo que permite obtener los diferentes datos de cada destino.
  * Y a su vez contiene el metodo abstracto calculaCosto que lo implementan las subclases dependiendo del tipo de vehiculo.
  */

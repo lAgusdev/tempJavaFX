@@ -1,3 +1,8 @@
+/**
+ * Esta subclase que es heredada de Travel y representa los viajes de corta distancia con su ID, patente del vehículo, destino, cantidad de pasajeros, estado y kilómetros recorridos.
+ * Es utilizada para que el parser JAXB pueda mapear los datos XML a objetos Java. Lo que permite comprobar la informacion de cada viaje.
+ * A su vez contiene el metodo devuelveValorCalculado con la implementacion para viajes de corta distancia.
+ */
 package com.java.tp.agency.travels;
 
 import com.java.tp.agency.places.Place;

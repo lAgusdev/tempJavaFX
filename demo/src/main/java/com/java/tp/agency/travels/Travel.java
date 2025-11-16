@@ -1,3 +1,8 @@
+/**
+ * Esta es una clse abstracta padre que representa un viaje con su ID, patente del vehículo, destino, cantidad de pasajeros, estado y kilómetros recorridos.
+ * Es utilizada para que el parser JAXB pueda mapear los datos XML a objetos Java. Lo que permite obtener los diferentes datos de cada destino.
+ * Y a su vez contiene el metodo abstracto devuelveValorCalculado que lo implementan las subclases dependiendo del tipo de viaje.
+ */
 package com.java.tp.agency.travels;
 import com.java.tp.agency.places.Place;
 import com.java.tp.agency.Agency;

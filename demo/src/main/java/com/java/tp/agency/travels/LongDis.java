@@ -1,12 +1,16 @@
+/**
+ * Esta subclase que es heredada de Travel y representa los viajes de larga distancia con su ID, patente del vehículo, destino, cantidad de pasajeros, estado y kilómetros recorridos.
+ * Es utilizada para que el parser JAXB pueda mapear los datos XML a objetos Java. Lo que permite comprobar la informacion de cada viaje.
+ * A su vez contiene el metodo devuelveValorCalculado con la implementacion para viajes de larga distancia.
+ * Y ademas contiene el metodo calculaSueldos que calcula el total de sueldos de los responsables a bordo que esten en el viaje.
+ */
 package com.java.tp.agency.travels;
-
 import com.java.tp.agency.Agency;
 import com.java.tp.agency.places.Place;
 import com.java.tp.agency.responsables.Responsable;
 import com.java.tp.agency.vehicles.Vehicles;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
-
 import java.util.HashMap;
 import java.util.TreeSet;
 

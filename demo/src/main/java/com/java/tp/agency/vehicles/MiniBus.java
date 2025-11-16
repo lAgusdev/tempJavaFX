@@ -1,7 +1,7 @@
 /**
- * Esta subclase representa las combis con su patente, capacidad, velocidad promedio por hora y estado.
- * Es utilizada para que el parser JAXB pueda mapear los datos XML a objetos Java. Lo que permite obtener los diferentes datos de cada destino.
- * Y a su vez contiene el metodo abstracto calculaCosto con la implementación específica para combis.
+ * Esta subclase que es heredada de Vehicles y representa las Combis con su ID, patente del vehículo, destino, cantidad de pasajeros, estado y kilómetros recorridos.
+ * Es utilizada para determinar cantidad de los asientos. Y la informacion obtenida del parser JAXB.
+ * Y a su vez contiene el metodo calculaCosto con la implementación específica para combis.
  */
 package com.java.tp.agency.vehicles;
 import jakarta.xml.bind.annotation.XmlAccessType;

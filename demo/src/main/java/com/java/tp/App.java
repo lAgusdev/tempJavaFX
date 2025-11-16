@@ -10,10 +10,8 @@ import java.io.IOException;
 import com.java.tp.agency.Agency;
 
 /**
- * @author Franco Di Meglio
- * @author Manuel Juárez
  * @author Gaspar Puente Villaroel
- * @author Agustin Nodar
+ * @author Agustin Moar
  * Entrega Final - T.P. Agencia de Viajes
  * 
  * Esta es la clase principal que inicia la aplicación JavaFX e instancia el singleton Agency.
