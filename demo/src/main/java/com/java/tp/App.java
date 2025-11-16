@@ -1,5 +1,11 @@
+/**
+ * @author Gaspar Puente Villaroel
+ * @author Agustin Moar
+ * Entrega Final - T.P. Agencia de Viajes
+ * 
+ * Esta es la clase principal que inicia la aplicación JavaFX e instancia el singleton Agency.
+ */
 package com.java.tp;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,15 +15,8 @@ import javafx.stage.Stage;
 import java.io.IOException; 
 import com.java.tp.agency.Agency;
 
-/**
- * @author Gaspar Puente Villaroel
- * @author Agustin Moar
- * Entrega Final - T.P. Agencia de Viajes
- * 
- * Esta es la clase principal que inicia la aplicación JavaFX e instancia el singleton Agency.
- */
 
-/** main */
+
 public class App extends Application {
 
     private static Scene scene;
