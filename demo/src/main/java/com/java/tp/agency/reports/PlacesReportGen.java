@@ -67,7 +67,14 @@ public class PlacesReportGen {
                         }
                     }
                     
-                    
+                    if (vehiculo != null && destino != null) {
+                        precioAcumulados += viaje.devuelveValorCalculado(
+                            vehiculo, 
+                            destino, 
+                            responsablesDelViaje, 
+                            viaje.getcPasajeros()
+                        );
+                    }
                 }
             }
             
