@@ -95,4 +95,53 @@
         <id>Tailandia</id>
         <km>10800</km>
     </destino>
+    <destino>
+        <id>Barrio Norte</id>
+        <km>5</km>
+    </destino>
+
+    <destino>
+        <id>Pueblo del Sol</id>
+        <km>80</km>
+    </destino>
+
+    <destino>
+        <id>Ubicación Actual</id>
+        <km>0</km>
+    </destino>
+
+    <destino>
+        <id>Ciudad Vecina A</id>
+        <km>145</km>
+    </destino>
+
+    <destino>
+        <id>El Paraje</id>
+        <km>22.5</km>
+    </destino>
+
+    <destino>
+        <id></id>
+        <km>350</km>
+    </destino>
+
+    <destino>
+        <id>Región Fronteriza</id>
+        <km>999</km>
+    </destino>
+
+    <destino>
+        <id>Localidad Turística</id>
+        <km>700</km>
+    </destino>
+
+    <destino>
+        <id>Error de Medición</id>
+        <km>-10</km>
+    </destino>
+
+    <destino>
+        <id>El Centro</id>
+        <km>48</km>
+    </destino>
 </destinos>
