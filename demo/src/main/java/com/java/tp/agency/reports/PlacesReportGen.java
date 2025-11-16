@@ -67,24 +67,7 @@ public class PlacesReportGen {
                         }
                     }
                     
-                    // Calcular camas si es coche cama
-                    int cantCamas = 0;
-                    if (vehiculo != null && vehiculo.getCapacidad() == 32) { // Coche cama
-                        cantCamas = Math.min(viaje.getcPasajeros(), 26);
-                        int asientosComunes = viaje.getcPasajeros() - cantCamas;
-                        if (asientosComunes > 6) {
-                            cantCamas = viaje.getcPasajeros() - 6;
-                        }
-                    }
                     
-                    if (vehiculo != null && destino != null) {
-                        precioAcumulados += viaje.devuelveValorCalculado(
-                            vehiculo, 
-                            destino, 
-                            responsablesDelViaje, 
-                            viaje.getcPasajeros()
-                        );
-                    }
                 }
             }
             

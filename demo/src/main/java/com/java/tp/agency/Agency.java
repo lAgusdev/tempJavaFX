@@ -1,3 +1,6 @@
+/**
+ * Esta clase representa la agencia con su conjunto de viajes, conjunto de destinos, conjunto de vehiculos, conjunto de responsables,la cantidad de viajes para calcular el id del viaje a partir del destino y el acumulador de km para cada responsable.
+ */
 package com.java.tp.agency;
 import com.java.tp.agency.travels.*;
 import com.java.tp.agency.dataController.DataController;
@@ -15,7 +18,7 @@ public class Agency {
     private HashMap<String,Responsable>responsables=new HashMap<>(); //ordenado por dni
     private HashMap<String,Integer>cantViajes= new HashMap<>();
     private HashMap<String,Float>resKm= new HashMap<>(); //Hashmap para acumular, List para mostrar
-
+    //constructor
     private Agency() {
         System.out.println("Se creo la instancia Singleton de agencia");
         try {
@@ -24,19 +27,22 @@ public class Agency {
             System.out.println("Error al cargar datos en init(): " + e.getMessage());
         }
     }
-
+//
+//getter de la instancia para aplicar el singleton
     public static Agency getInstancia(){
         if (instancia==null) {
             instancia = new Agency();
         }
         return instancia;
     }
-
+//
+//actualiza los km recorridos por el responsable para el ranking
     public void ActualizaResKm(String dniResponsableABordo, float kmRecorridos){
         kmRecorridos+= resKm.getOrDefault(dniResponsableABordo, 0.0f);
         resKm.put(dniResponsableABordo, kmRecorridos); //remplaza el viejo por el nuevo
     }
-
+//
+//genera el ranking de responsables por km recorridos
     public ArrayList<ResponsableKM> obtenerRankingPorKm(HashMap<String, Float> resKm) {
         ArrayList<ResponsableKM> Ranking = new ArrayList<>();
         for (HashMap.Entry<String,Float> objeto : resKm.entrySet()) {
@@ -48,7 +54,7 @@ public class Agency {
         Ranking.sort(Comparator.comparing(ResponsableKM::getKmRecorridos).reversed());
         return Ranking;
     }
-
+//
     //getters
     public HashMap<String,Responsable> getResponsables() {return responsables;}
     public HashMap<String, Integer> getCantViajes() {return cantViajes;}
@@ -56,8 +62,8 @@ public class Agency {
     public TreeMap<String,Place> getDestinos(){return destinos;}
     public HashMap<String,Vehicles> getVehiculos(){return vehiculos;}
     //fin getter
-
-    public HashMap<String, Vehicles> VehiculosDisponibles(){ //devuelve una lista con los vehiculos disponibles
+//devuelve los vehiculos disponibles para asignar a un viaje
+    public HashMap<String, Vehicles> VehiculosDisponibles(){ //devuelve una HashMap con los vehiculos disponibles
         HashMap<String, Vehicles> aux=new HashMap<>();
         for(Vehicles v: vehiculos.values()){
             if(v.getEstado()== Unoccupied.DISPONIBLE){
@@ -70,7 +76,7 @@ public class Agency {
         return aux;
 
     }
-    public HashMap<String, Responsable> ResponsablesDisponibles(){ //devuelve una lista con los responsables disponibles
+    public HashMap<String, Responsable> ResponsablesDisponibles(){ //devuelve un Hashmap con los responsables disponibles
         HashMap<String, Responsable> aux=new HashMap<>();
         for(Responsable r: responsables.values()){
             if(r.getEstado()== Unoccupied.DISPONIBLE){
@@ -82,11 +88,13 @@ public class Agency {
         }
         return aux;
     }
+    //muestra el viaje creado por consola por seguridad
     public void muestraViajes(){
         for(Travel v: viajes.values()){
             System.out.println(v.getId()+" || "+v.getIdDestino() + " || " + v.getEstado());
         }
     }
+    //crea el viaje y actualiza el estado del vehiculo y responsables asignados
     public void crearViaje(String destino,String patVeh ,int pasajeros,float kmRec, TreeSet <String>res){
         Travel viajenuevo;
         Place desAct=destinos.get(destino);
@@ -144,20 +152,15 @@ public class Agency {
             }
         }
     }
-
+//crea el id del viaje a partir del destino y la cantidad de viajes realizados a ese destino.devuelve el id creado
     public String creaIdViaje(String destino){
-    // Ensure we have a counter for this destination. If absent, start at 1.
         int contador = cantViajes.getOrDefault(destino, 1);
         String id = destino + "-" + contador;
-        // Store next counter value
         cantViajes.put(destino, contador + 1);
         return id;
     }
     
-    /**
-     * Actualiza el contador de viajes basándose en un ID existente
-     * para evitar duplicados al cargar viajes desde XML
-     */
+//actualiza el contador de viajes a partir del id del viaje cargado desde el xml
     public void actualizarContadorDesdeId(String idViaje) {
         // Extraer el destino y número del ID (formato: "Destino-5")
         int lastDash = idViaje.lastIndexOf('-');
@@ -175,7 +178,7 @@ public class Agency {
             }
         }
     }
-
+//llama al data controller para serializar los viajes
     public void saveTravelsData() {
         try {
             new DataController().serializaViajes();
@@ -184,21 +187,14 @@ public class Agency {
         }
     }
     
-    /**
-     * Retorna un mapa con las distancias de todos los destinos
-     */
+//getters para la interfaz
     public Map<String, Integer> getDistancias() {
         Map<String, Integer> distancias = new TreeMap<>();
         for (Place destino : destinos.values()) {
             distancias.put(destino.getId(), (int) destino.getKm());
         }
         return distancias;
-    }
-    
-    /**
-     * Retorna una lista de vehículos disponibles para viajes de larga distancia
-     * (Combi, Semi-Cama, Coche-Cama)
-     */
+    }   
     public List<String> getVehiculosParaLargaDistancia() {
         List<String> vehiculosLarga = new ArrayList<>();
         HashMap<String, Vehicles> disponibles = VehiculosDisponibles();
@@ -226,11 +222,6 @@ public class Agency {
         
         return vehiculosLarga;
     }
-    
-    /**
-     * Retorna una lista de vehículos disponibles para viajes de corta distancia
-     * (Auto, Combi, Semi-Cama)
-     */
     public List<String> getVehiculosParaCortaDistancia() {
         List<String> vehiculosCorta = new ArrayList<>();
         HashMap<String, Vehicles> disponibles = VehiculosDisponibles();
@@ -258,10 +249,38 @@ public class Agency {
         
         return vehiculosCorta;
     }
-    
-    /**
-     * Extrae la patente de un string con formato "Tipo: Patente"
-     */
+    public List<String> getResponsablesDisponibles() {
+        Collection<Responsable> todosLosResponsables = responsables.values();
+        Set<String> responsablesOcupadosDni = new HashSet<>();
+        
+        // Obtener DNIs de responsables ocupados en viajes PENDIENTE o EN_CURSO
+        for (Travel viaje : viajes.values()) {
+            try {
+                // Solo considerar viajes que no sean pendientes ni en curso
+                if (viaje.getEstado() != com.java.tp.agency.enums.TravelStatus.PENDIENTE ||
+                    viaje.getEstado() != com.java.tp.agency.enums.TravelStatus.EN_CURSO){
+                    TreeSet<String> dnisDelViaje = viaje.getPerResponsables();
+                    if (dnisDelViaje != null) {
+                        responsablesOcupadosDni.addAll(dnisDelViaje);
+                    }
+                }
+            } catch (Exception e) {
+                System.err.println("Error procesando viaje: " + e.getMessage());
+            }
+        }
+        
+        // Crear lista de disponibles
+        List<String> listaDisponibles = new ArrayList<>();
+        for (Responsable responsable : todosLosResponsables) {
+            String dni = responsable.getDni();
+            if (!responsablesOcupadosDni.contains(dni)) {
+                listaDisponibles.add(String.format("%s (%s)", responsable.getNombre(), dni));
+            }
+        }
+        
+        return listaDisponibles;
+    }
+    //Extrae la patente de un string con formato "Tipo: Patente"
     public static String extraerPatente(String vehiculoSeleccionado) {
         if (vehiculoSeleccionado == null) {
             return null;
@@ -274,14 +293,7 @@ public class Agency {
         return vehiculoSeleccionado;
     }
     
-    /**
-     * Calcula el costo de un viaje sin crearlo
-     * @param destinoId ID del destino
-     * @param vehiculoDescripcion Descripción del vehículo (puede incluir "Tipo: Patente")
-     * @param pasajeros Cantidad de pasajeros
-     * @param dniResponsables DNIs de los responsables (puede ser null para viajes cortos)
-     * @return El costo calculado del viaje
-     */
+//calcula el costo del viaje. devuelve un double con el costo
     public double calcularCostoViaje(String destinoId, String vehiculoDescripcion, int pasajeros, TreeSet<String> dniResponsables) {
         // Extraer patente
         String patente = extraerPatente(vehiculoDescripcion);
@@ -329,48 +341,12 @@ public class Agency {
         }
     }
     
-    /**
-     * Obtiene la capacidad de un vehículo a partir de su descripción
-     */
+//obtiene la capacidad del vehiculo a partir de su descripcion
     public int getCapacidadVehiculo(String vehiculoDescripcion) {
         String patente = extraerPatente(vehiculoDescripcion);
         Vehicles vehiculo = vehiculos.get(patente);
         return (vehiculo != null) ? vehiculo.getCapacidad() : -1;
     }
-    
-    /**
-     * Obtiene la lista de responsables disponibles (no asignados a viajes activos)
-     * @return Lista de strings con formato "Nombre (DNI)"
-     */
-    public List<String> getResponsablesDisponibles() {
-        Collection<Responsable> todosLosResponsables = responsables.values();
-        Set<String> responsablesOcupadosDni = new HashSet<>();
-        
-        // Obtener DNIs de responsables ocupados en viajes PENDIENTE o EN_CURSO
-        for (Travel viaje : viajes.values()) {
-            try {
-                // Solo considerar viajes que no sean pendientes ni en curso
-                if (viaje.getEstado() != com.java.tp.agency.enums.TravelStatus.PENDIENTE ||
-                    viaje.getEstado() != com.java.tp.agency.enums.TravelStatus.EN_CURSO){
-                    TreeSet<String> dnisDelViaje = viaje.getPerResponsables();
-                    if (dnisDelViaje != null) {
-                        responsablesOcupadosDni.addAll(dnisDelViaje);
-                    }
-                }
-            } catch (Exception e) {
-                System.err.println("Error procesando viaje: " + e.getMessage());
-            }
-        }
-        
-        // Crear lista de disponibles
-        List<String> listaDisponibles = new ArrayList<>();
-        for (Responsable responsable : todosLosResponsables) {
-            String dni = responsable.getDni();
-            if (!responsablesOcupadosDni.contains(dni)) {
-                listaDisponibles.add(String.format("%s (%s)", responsable.getNombre(), dni));
-            }
-        }
-        
-        return listaDisponibles;
-    }
+
+
 }
