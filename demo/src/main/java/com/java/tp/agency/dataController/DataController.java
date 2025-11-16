@@ -56,8 +56,8 @@ public class DataController {
                         if (!r.getDni().matches("[0-9]{8}")) {
                             throw new ResponsableInvalidoException("Dni Invalido");
                         }
-                        if (r.getSalario() < 0) {
-                            throw new ResponsableInvalidoException("Salario negativo");
+                        if (r.getSalario() <= 0) {
+                            throw new ResponsableInvalidoException("Salario negativo o nulo");
                         }
                         if (res.containsKey(r.getDni())) {
                             throw new ResponsableInvalidoException("Dni repetido");

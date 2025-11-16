@@ -81,4 +81,69 @@
         <valPasajeroCama>-160</valPasajeroCama>
         <valPasajeroAsiento>150</valPasajeroAsiento>
     </colectivoCC>
+    <combi>
+        <patente></patente>
+        <velPerH>135</velPerH>
+        <valBase>15000</valBase>
+        <valPasajero>145</valPasajero>
+    </combi>
+
+    <auto>
+        <patente>AZ987BX</patente>
+        <velPerH>165.7</velPerH>
+        <valBase>25000</valBase>
+        <valKm>180</valKm>
+    </auto>
+
+    <colectivoSC>
+        <patente>CA333RR</patente>
+        <velPerH>95</velPerH>
+        <valPasajero>130</valPasajero>
+    </colectivoSC>
+
+    <colectivoCC>
+        <patente>DB444TT</patente>
+        <velPerH>110</velPerH>
+        <valPasajeroCama>250</valPasajeroCama>
+        </colectivoCC>
+
+    <auto>
+        <patente>EE555YY</patente>
+        <velPerH>120</velPerH>
+        <valBase>1000</valBase>
+        <valKm>200</valKm>
+    </auto>
+
+    <combi>
+        <patente>FG666UU</patente>
+        <velPerH>70</velPerH>
+        <valBase>18000</valBase>
+        <valPasajero>0</valPasajero>
+    </combi>
+
+    <colectivoSC>
+        <patente>GH777II</patente>
+        <velPerH>88</velPerH>
+        <valPasajero>-50</valPasajero>
+    </colectivoSC>
+
+    <colectivoCC>
+        <patente>HJ888OO</patente>
+        <valPasajeroCama>220</valPasajeroCama>
+        <valPasajeroAsiento>160</valPasajeroAsiento>
+    </colectivoCC>
+
+    <auto>
+        <patente>KL999PP</patente>
+        <velPerH>140</velPerH>
+        <valBase>22000</valBase>
+        <valKm>190</valKm>
+    </auto>
+
+    <combi>
+        <patente>MN000QQ</patente>
+        <velPerH>100</velPerH>
+        <valBase>12000</valBase>
+        <valPasajero>100</valPasajero>
+    </combi>
 </vehiculos>

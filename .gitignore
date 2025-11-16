@@ -3,4 +3,4 @@
 .vscode/
 
 # Archivos de Java
-*.jar
+*.class
