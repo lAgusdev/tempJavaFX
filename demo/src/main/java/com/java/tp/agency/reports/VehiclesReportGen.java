@@ -52,15 +52,7 @@ public class VehiclesReportGen {
                 }
             }
             
-            // Calcular camas si es coche cama
-            int cantCamas = 0;
-            if (vehiculo.getCapacidad() == 32) { // Coche cama
-                cantCamas = Math.min(viaje.getcPasajeros(), 26);
-                int asientosComunes = viaje.getcPasajeros() - cantCamas;
-                if (asientosComunes > 6) {
-                    cantCamas = viaje.getcPasajeros() - 6;
-                }
-            }
+            
             
             // Calcular el costo del viaje
             float costoViaje = viaje.devuelveValorCalculado(
